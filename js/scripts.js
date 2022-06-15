@@ -43,9 +43,47 @@ game.addPlayer(player2);
 function diceRoll() {
   min = Math.ceil(1);
   max = Math.floor(7);
-  return Math.floor(Math.random() * (7 - 1) + 1); 
+  diceResult= Math.floor(Math.random() * (7 - 1) + 1); 
+  console.log("diceRoll: "+diceResult);
+  return diceResult;
+}
+
+let curentScore = 0;
+
+function turnScore () {
+  let diceResult = diceRoll();
+   if (diceResult === 1) {
+    currentScore = 0;
+   // endTurn();
+   }
+   else {
+  currentScore += diceResult;
+   };
+  return currentScore;
+}
+
+
+function endTurn() {
+  game.findPlayer(1).totalScore = turnScoreVariable + game.findPlayer(1).totalScore;
 }
 
 
 
-//How to access a player's total score: game.findPlayer(1).totalScore
+
+
+// UI Logic
+
+$(document).ready(function() {
+  $("form#new-contact").submit(function(event) {
+  event.preventDefault();
+  diceRoll();
+  // create currentTotal variable = 0
+  //let rolledNumber = diceRoll();
+  //show rolledNumber value on HTML
+  //add rolledNumber to currentTotal
+  //show currentTotal on HTML
+  //currentTotal += rolledNumber
+
+
+});
+});
