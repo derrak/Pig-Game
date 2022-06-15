@@ -48,7 +48,31 @@ function diceRoll() {
   return diceResult;
 }
 
-let curentScore = 0;
+//let curentScore = turnScore();
+
+// if user pushes roll: {}
+// if user pushes hold {}
+
+function rollButton () {
+  let roll = turnScore();
+  
+
+};
+
+// derrak's thoughts
+// function holdButton () {
+//   take the output of turnScore and add it to 
+//   game.findPlayer(1).totalScore;
+//   switch players;
+// }
+
+// function rollButton () {
+//   add roll value to turnScore
+//   if roll value === 1 
+//   game.findPlayer(1).totalScore +0;
+//   switch players;
+// }
+
 
 function turnScore () {
   let diceResult = diceRoll();
