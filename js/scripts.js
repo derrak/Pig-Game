@@ -20,6 +20,13 @@ Game.prototype.assignInitialScore = function() {
   return this.totalScore =0;
 };
 
+Game.prototype.findPlayer = function(id) {
+  if (this.playerList[id] != undefined) {
+    return this.playerList[id];
+  }
+  return false;
+}
+
 // Business Logic for Player
 
 function Player(firstName) {
@@ -31,3 +38,14 @@ let player1 = new Player("Jude");
 let player2 = new Player("Bill");
 game.addPlayer(player1);
 game.addPlayer(player2);
+
+// buisiness logic for gameplay
+function diceRoll() {
+  min = Math.ceil(1);
+  max = Math.floor(7);
+  return Math.floor(Math.random() * (7 - 1) + 1); 
+}
+
+
+
+//How to access a player's total score: game.findPlayer(1).totalScore

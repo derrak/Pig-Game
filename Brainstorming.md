@@ -50,3 +50,17 @@ create a "hold" function to add currentScore to player's totalScore
 create function to check if player's score >=100
 check if player's score >=100 => WINNER
 else keep playing
+
+
+player1:name [INPUT      ]          player2:name [   INPUT   ]
+player1:totalScore            player2:totalScore
+["Ready!" Button to submit/initialize players]
+
+<div>Display who's turn it is</div>
+
+player1:currentRollScore     player2:currentRollScore
+[Roll button id=player1]     [Roll button  id=player2]
+[Hold button id=player1]]    [Hold button  id=player2]]
+
+<li>player1:appended          <li>player1:appended 
+history of past turns</li>    history of past turns</li>
