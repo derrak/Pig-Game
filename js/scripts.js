@@ -80,22 +80,27 @@ function turnScore () {
 };
 
 function endGame(){
-  console.log("Player " + playersTurn + " WINS");
+  game.findPlayer(1).totalScore = 0;
+  game.findPlayer(2).totalScore = 0;
+  game.findPlayer(1).roundScore = 0;
+  game.findPlayer(2).roundScore = 0;
+  endGameUI();
 }
-function endTurn () { 
+
+function endTurn() { 
   game.findPlayer(playersTurn).totalScore = game.findPlayer(playersTurn).roundScore + game.findPlayer(playersTurn).totalScore;
   game.findPlayer(playersTurn).roundScore = 0;
   turnNumber();
 };
 
 // UI Logic
+function endGameUI() {
+  alert("Player " + playersTurn + " WINS");
+  $("#totalScore1").text(0);
+  $("#totalScore2").text(0);
+}
 
 $(document).ready(function() {
-
-
-
-
-
 $("#nameinput").click(function(event) {
   event.preventDefault();
   const inputtedFirstPlayer = $("input#playerOneName").val();
