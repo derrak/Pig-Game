@@ -1,3 +1,13 @@
+to add to DOM
+current dice roll
+round score
+
+player 1's total score
+player 2's total score
+
+
+
+
 decide which project to tackle with your partner. Then, group up with other pairs working on this project for a collective, student-led brainstorming session. Map out a basic approach, collaborate, and get creative!
 
 What will happen when a user clicks "Play"? Generate random number. If ===1; turn over
@@ -64,3 +74,47 @@ player1:currentRollScore     player2:currentRollScore
 
 <li>player1:appended          <li>player1:appended 
 history of past turns</li>    history of past turns</li>
+
+
+----------------------
+
+
+$("#button1").click(function(event) {
+    event.preventDefault();
+    newPlayer1.RollDice();
+    newPlayer1.AddRoundScore();
+    newPlayer1.AddTotalScore();
+    $("#p1score").html(newPlayer1.totalScore);
+
+    console.log(newPlayer1);
+  });
+
+  $("#button2").click(function(event) {
+    event.preventDefault();
+    newPlayer2.RollDice();
+    newPlayer2.AddRoundScore();
+    newPlayer2.AddTotalScore();
+    $("#p2score").html(newPlayer2.totalScore);
+    console.log(newPlayer2);
+  });
+
+
+            <button id="button1" type="click" class="btn-dark btn btn-primary">player one roll</button>
+          </div>
+          <div class="column">
+            <h3><strong>Player 2: <span id="p2score"></span></strong></h3>
+            <br>
+            
+            <button id="button2" type="click" class="btn-dark btn btn-primary">player two roll</button>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-1 mx-auto">
+            
+            <button id="hold-button" type="click" class="btn btn-primary">Hold</button>
+            <button id="button3" type="click" class="btn-success btn btn-primary  btn-sm">Money, Money!</button>
+          </div>
+
+
+

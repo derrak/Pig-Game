@@ -13,7 +13,9 @@
 <body>
 
   <div class="container">
-    <h1>Pig Dice</h1>
+    <div class="jumbotron">
+      <h1>Pig Dice</h1>
+    </div>
    <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -24,7 +26,7 @@
             <label for="playerOneName">First Name</label>
             <input type="text"  class="form-control" id="playerOneName">
             <br>
-            <button type="submit" class="btn-primary">Add</button>
+            <button type="submit" id="nameinput" class="btn btn-primary">Add</button>
           </div>
         </div>
         
@@ -32,16 +34,18 @@
           <hr>
           <h2>Add Player 2:</h2>
           <label for="playerTwoName">First Name</label>
-          <input type="text"  class="form-control" id="playerTwoName">
+          <input type="text"  class="form-control" id="playerTwoName">  
         </div>
       </div>
-    </div>
 
     <p> You rolled a: <span id=rolledNumber></span> !
+    <p> Your current round total is: <span id=currentScore></span> !
+
     <hr>
-      <button type="submit" class="btn-primary">Hold</button>
-      <button type="submit" class="btn-primary">Roll</button>
+      <button type="submit" id="hold" class="btn btn-primary">Hold</button>
+      <button type="submit" id="roll" class="btn btn-primary">Roll</button>
     </div>
+  </div>
 
 </body>
 </html>
