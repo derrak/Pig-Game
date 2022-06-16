@@ -50,6 +50,10 @@ function turnNumber () {
   console.log("Players turn: " + playersTurn);
   return playersTurn;
   }
+  
+
+
+
 
 function diceRoll() {
   min = Math.ceil(1);
@@ -72,6 +76,7 @@ function turnScore () {
     }
     else{};
   };
+  return diceResult;
 };
 
 function endGame(){
@@ -86,6 +91,11 @@ function endTurn () {
 // UI Logic
 
 $(document).ready(function() {
+
+
+
+
+
 $("#nameinput").click(function(event) {
   event.preventDefault();
   const inputtedFirstPlayer = $("input#playerOneName").val();
@@ -97,63 +107,32 @@ $("#nameinput").click(function(event) {
   let player2 = new Player(inputtedSecondPlayer);
   game.addPlayer(player1);
   game.addPlayer(player2);
-
+  $("#player1Name").text(inputtedFirstPlayer);
+  $("#player2Name").text(inputtedSecondPlayer);
+  $("#playersTurnName").text(game.findPlayer(playersTurn).playerName);
+  $(".nameEntry").hide();
+  $(".gamePlay").show();
 });
 
-// const inputtedFirstName = $("input#new-first-name").val();
-
-  $("#roll").click(function(event) {
-    event.preventDefault();
-    turnScore();
-    // create currentTotal variable = 0
-    //let rolledNumber = diceRoll();
-    //show rolledNumber value on HTML
-    //add rolledNumber to currentTotal
-    //show currentTotal on HTML
-    //currentTotal += rolledNumber
-  });
-  $("#hold").click(function(event){
-    event.preventDefault();
-    endTurn();
-  });
-  
+$("#roll").click(function(event) {
+  event.preventDefault();
+  let rolledNumber = turnScore();
+  $("#rolledNumber").text(rolledNumber);
+  let roundScore = game.findPlayer(playersTurn).roundScore;
+  $("#currentScore").text(roundScore);
+  $("#playersTurnName").text(game.findPlayer(playersTurn).playerName);
 });
 
-
-//let curentScore = turnScore();
-
-// if user pushes roll: {}
-// if user pushes hold {}
-
-// function rollButton () {
-  //   let roll = turnScore();
+$("#hold").click(function(event){
+  event.preventDefault();
+  endTurn();
+  $("#rolledNumber").text("Roll the dice");
+  $("#currentScore").text("Roll the dice");
+  let totalScore1 = game.findPlayer(1).totalScore;
+  $("#totalScore1").text(totalScore1);
+  let totalScore2 = game.findPlayer(2).totalScore;
+  $("#totalScore2").text(totalScore2);
+  $("#playersTurnName").text(game.findPlayer(playersTurn).playerName);
+});
   
-  
-  // };
-  
-  // function roll () {
-    //   let turnScoreValue = turnScore();
-    //   return turnScoreValue;
-    // }
-    
-    
-
-    // derrak's thoughts
-    // function holdButton () {
-      //   take the output of turnScore and add it to 
-      //   game.findPlayer(1).totalScore;
-      //   switch players;
-      // }
-      
-      // function rollButton () {
-        //   add roll value to turnScore
-        //   if roll value === 1 
-        //   game.findPlayer(1).totalScore +0;
-        //   switch players;
-        // }
-        
-        //!!!!!!!!!!!!!!!!!!!!!!!!!
-        //If we can't figure this out overnight, lets look into moving current score to a property/key in the player objects
-        //!!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        
+});
